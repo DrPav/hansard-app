@@ -39,7 +39,7 @@ var master = function(){
 };
 
 //Run
-master;
+master();
     
 
 
