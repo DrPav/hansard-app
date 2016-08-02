@@ -3,13 +3,7 @@
 var request = require("request");
 var rp = require('request-promise');
 var Question = require("./question-model.js");
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/hansardTest');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we're connected!");
-});
+
 
 //10 items per page is the default
 var url = "http://lda.data.parliament.uk/answeredquestions.json" +
@@ -56,8 +50,9 @@ var cleanResult = function(hansard_item){
     //Contain in the array from result.items in the json file
     var clean_object = {
         heading: hansard_item.hansardHeading._value,
-        question: hansard_item.questionText,
-        answer: hansard_item.answer.answerText._value, //contains html
+        hansard_text: {
+            question: hansard_item.questionText,
+            answer: hansard_item.answer.answerText._value }, //contains html
         department: hansard_item.answeringDeptShortName._value,
         house: hansard_item.houseId._value,
         member_tabled: hansard_item.tablingMemberPrinted[0]._value,

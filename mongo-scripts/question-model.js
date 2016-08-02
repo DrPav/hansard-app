@@ -7,8 +7,9 @@ var textSearch = require('mongoose-text-search');
 //Schema
 var schema = new mongoose.Schema({
         heading: String,
-        question: String,
-        answer: String,
+        hansard_text:{
+            question: String,
+            answer: String },
         department: String,
         house: Number,
         member_tabled: String,
@@ -20,7 +21,7 @@ var schema = new mongoose.Schema({
 // give our schema text search capabilities 
 schema.plugin(textSearch);
  // add a text index to the tags array 
-schema.index({ answer: 'text', question: 'text' });
+schema.index({ hansard_text: 'text'});
 
 // var Question = mongoose.model("Question", schema)
 
