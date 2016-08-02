@@ -1,15 +1,12 @@
-
 //Mongooose stuff - put in a model folder and require
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/hansardTest');
-var textSearch = require('mongoose-text-search');
 
 //Schema
 var schema = new mongoose.Schema({
         heading: String,
-        hansard_text:{
-            question: String,
-            answer: String },
+        question: String,
+        answer: String,
         department: String,
         house: Number,
         member_tabled: String,
@@ -18,11 +15,11 @@ var schema = new mongoose.Schema({
         api_uin: {type: String, unique: true}
 });
 
-// give our schema text search capabilities 
-schema.plugin(textSearch);
- // add a text index to the tags array 
-schema.index({ hansard_text: 'text'});
 
-// var Question = mongoose.model("Question", schema)
+ // add a text index to fields to allow full text search on them
+schema.index({ answer: 'text', question: 'text'});
 
+//Export
 module.exports = mongoose.model("Question", schema);
+
+

@@ -50,9 +50,8 @@ var cleanResult = function(hansard_item){
     //Contain in the array from result.items in the json file
     var clean_object = {
         heading: hansard_item.hansardHeading._value,
-        hansard_text: {
-            question: hansard_item.questionText,
-            answer: hansard_item.answer.answerText._value }, //contains html
+        question: hansard_item.questionText,
+        answer: hansard_item.answer.answerText._value, //contains html
         department: hansard_item.answeringDeptShortName._value,
         house: hansard_item.houseId._value,
         member_tabled: hansard_item.tablingMemberPrinted[0]._value,
