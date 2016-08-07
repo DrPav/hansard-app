@@ -1,20 +1,3 @@
-// var myJson = [
-//     {_id: 'Health', count: 42 },
-//     { _id: 'Education', count: 26 },
-//     { _id: 'Communities and Local Government', count: 24 },
-//     { _id: 'Environment, Food and Rural Affairs', count: 21 },
-//     { _id: 'Defence', count: 20 },
-//     { _id: 'Home Office', count: 20 },
-//     { _id: 'Cabinet Office', count: 18 },
-//     { _id: 'Exiting the European Union', count: 18 },
-//     { _id: 'International Development', count: 18 },
-//     { _id: 'Foreign and Commonwealth Office', count: 18 },
-//     { _id: 'Transport', count: 17 },
-//     { _id: 'Treasury', count: 12 },
-//     { _id: 'Justice', count: 9 },
-//     { _id: 'Culture, Media and Sport', count: 9 },
-//     { _id: 'Work and Pensions', count: 7 } ]
-
 var getX = function(json){
     var series = []
     json.forEach(function(item){
@@ -29,7 +12,7 @@ var getSeries = function(json){
     })
     return series }
     
-$.getJSON( "/dept-data", function( data ) {
+$.getJSON( "/dept-data?limit=10", function( data ) {
     // Chart
     $(function () { 
         $('#container').highcharts({
