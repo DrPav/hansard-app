@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
+var aggregate = require("./mongo-scripts/aggregate.js")
 // var bodyParser  = require("body-parser")
-var mongo_question = require("./mongo-scripts//question-model.js") ;
 app.set("view engine", "ejs");
 // app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname +'/public'));
@@ -19,15 +19,11 @@ app.get('/', function(req, res) {
 
 // Get the dept data
 app.get('/dept-data', function(req, res) {
-        var search_string = req.query.q;
-    console.log("search term is " + search_string);
-    mongo_question.aggregate()
-    .group({_id: '$department', count: {$sum: 1}})
-    .sort('-count')
-    .exec(function (err, data){
-        if (err) return console.log(err);
-        res.json(data);
-    });
+    aggregate.byDept(req.query, function(err, data){
+        if (err) console.log(err);
+        console.log(data)
+        res.json(data)
+    })
 });
 
 // Error Route
@@ -38,4 +34,5 @@ app.get('*', function(req, res) {
 app.listen(process.env.PORT, process.env.IP,  function () {
   console.log('App ready');
 });
+
 
