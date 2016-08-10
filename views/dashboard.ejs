@@ -10,6 +10,56 @@
 <body>
 
 <h1>My first chart</h1>
+<form>
+    <div>
+        <label for="search">Name:</label>
+        <input type="search" id="search" name="search" />
+    </div>
+    <div>
+        <label for="dept">Fruit</label>
+        <select multiple id = "dept">
+          <option>Banana</option>
+          <option>Cherry</option>
+          <option>Lemon</option>
+        </select>
+    </div>
+    <div>
+        <label for="fromDate">From:</label>
+        <input type="date" ide = "fromDate">
+    </div>
+        <div>
+        <label for="toDate">To:</label>
+        <input type="date" id = "toDate">
+    </div>
+    <div>
+        <label for="tMember">Tabling member</label>
+        <input type="text" id="tMember" list="memberList" />
+        <datalist id="memberList">
+          <option>Apple</option>
+          <option>Banana</option>
+          <option>Blackberry</option>
+          <option>Blueberry</option>
+          <option>Lemon</option>
+          <option>Lychee</option>
+          <option>Peach</option>
+          <option>Pear</option>
+        </datalist>
+    </div>
+    <div>
+        <fieldset>
+          <legend>House?</legend>
+          <p><label for="g1"><input type="radio" name="g" id="g1" value="Both"> Both</label></p>
+          <p><label for="g2"><input type="radio" name="g" id="g2" value="Commons"> Commons</label></p>
+          <p><label for="g3"><input type="radio" name="g" id="g3" value="Lords"> Lords</label></p>
+        </fieldset>
+        
+    </div>
+    
+    <div class="button">
+        <button type="search">Submit</button>
+        <input type="button" value="This button will reset dashboard to default">
+    </div>
+</form>
 
 <div id="chartDepartment" style="width:75%; height:400px;"></div>
 <br>
