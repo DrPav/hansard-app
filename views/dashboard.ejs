@@ -1,7 +1,8 @@
 <head>
     <title> Hansard App </title>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script src = "bootstrap.min.js"></script>
   <script src = "jquery/dist/jquery.js"></script>
-    
   <script src="highcharts/highcharts.js"></script>
   <!--<script src="themes/grid.js" type="text/javascript"></script>-->
   <script src = "chart-render.js"> </script>
@@ -10,11 +11,31 @@
 
 <body>
 
-<h1>My first chart</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">PQ DASHBOARD</a>
+    </div>
+
+  </div><!-- /.container-fluid -->
+</nav>
+<form style="width: 80%">
+    <div class="form-group">
+        <input class="form-control" id="search-text" type="search" placeholder = "filter to search term">
+    </div>
+    <p>Advanced down arrow</p>
+    <button type="submit" class="btn btn-primary" id ="search-btn">Go</button>
+</form>
+
+
+
+
+
 <form>
     <div>
         <label for="search">Name:</label>
-        <input type="search" id="search-text" name="search" />
+        <input type="search" id="search-text" name="search"  />
     </div>
     <div>
         <input type = "checkbox"  value = "Transport" name = "deptOptions"> 
